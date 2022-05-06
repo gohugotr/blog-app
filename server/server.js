@@ -1,5 +1,6 @@
 const { ApolloServer } = require('apollo-server')
 const gql = require('graphql-tag') // typeDefs tanımları için gerekli
+
 const { MongoClient, ServerApiVersion } = require('mongodb')
 const uri =
   'mongodb+srv://serihesap:blog1234@cluster0.kp9ua.mongodb.net/blogDB?retryWrites=true&w=majority'
