@@ -38,7 +38,11 @@ kullanılarak belirtilen datayı gerçek zamanlı olarak client'e gönderir.
 
 ## Temel `Apollo Server` yapılandırması
 
+**pacakage.json** içinde  `"main": "server.js",` 
+`nodemon server` terminal komutu ile çalıştırılır.
+
 ```js script
+// Dosya adı server.js
 const {ApolloServer} = require('apollo-server');
 const gql = require('graphql-tag'); // typeDefs tanımları için gerekli
 
