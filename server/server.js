@@ -14,7 +14,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    makalelerGetir: [Makale]
+    makalelerGetir: [Makale]!,
+    makaleGetir(id:ID!):Makale!  
   }
 
   type Mutation{
@@ -28,6 +29,16 @@ const resolvers = {
       const makaleler = await MakaleModel.find()
       return makaleler
     },
+    async makaleGetir(parent, args){
+        try {
+            const {id} = args;
+
+            return await MakaleModel.findById(id);
+
+        } catch (error) {
+            throw new error;
+        }
+    }
     // makalelerGetir() {
     //   const makaleler = [
     //     { id: 1, baslik: 'Makale1 başlık1', icerik: 'Makale1 içerik' },

@@ -74,6 +74,8 @@ server.listen({port:4000}).then((res) => {
 ### GRAPHQL play içinde sorgulama örnekleri
 ===========================================
 
+`Örnek 1`
+
 ```js script
 mutation MakaleOlustur($baslik: String!, $icerik: String!) {
   makaleOlustur(baslik: $baslik, icerik: $icerik) {
@@ -83,6 +85,49 @@ mutation MakaleOlustur($baslik: String!, $icerik: String!) {
 }
 
 query MakalelerGetir {
+  makalelerGetir {
+    id
+    baslik
+    icerik
+  }
+}
+```
+
+`Örnek 2`
+
+```js script
+query MakalelerGetir {
+  makalelerGetir {
+    id
+    baslik
+    icerik
+  }
+}
+
+query Query($makaleGetirId: ID!) {  
+  makaleGetir(id: $makaleGetirId) {
+    id
+    baslik
+    icerik
+  }
+}
+
+Variables
+{
+  "makaleGetirId": "6275a00ac7a03cb6dcfb16af"
+}
+```
+
+`Örnek 3`
+
+```js script
+query Query($makaleGetirId: ID!) {  
+  makaleGetir(id: $makaleGetirId) {
+    id
+    baslik
+    icerik
+  }
+  
   makalelerGetir {
     id
     baslik
