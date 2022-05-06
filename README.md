@@ -38,7 +38,8 @@ kullanılarak belirtilen datayı gerçek zamanlı olarak client'e gönderir.
 
 ## Temel `Apollo Server` yapılandırması
 
-**pacakage.json** içinde  `"main": "server.js",` 
+**pacakage.json** içinde  `"main": "server.js",`
+
 `nodemon server` terminal komutu ile çalıştırılır.
 
 ```js script
