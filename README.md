@@ -21,10 +21,14 @@ Normalde "node server" ile de çalışır fakat değişiklikler anında yansıs�
 GRAPHQL
 =======
 
-typeDefs     : Veritabanında bulunan tablo ve alanların tanımı yapılır
-Query        : Sorgulamalar buraya yazılır. Bu tanımlamalar dışında
+`typeDefs     :` Veritabanında bulunan tablo ve alanların tanımı yapılır.
+
+`Query        :` Sorgulamalar buraya yazılır. Bu tanımlamalar dışında
 sorgu çalıştıramayız.
-resolvers    : Graphql çalıştığı zaman yapılacak işlemlerin tanımlandığı alanlardır.
-Mutations    : Veri oluşturma, güncelleme ve silme işlemleri için kullanılır.
-Subscriptions: Server tarafında belirli bir event gerçekleştiğinde WebSocket
+
+`resolvers    :` Graphql çalıştığı zaman yapılacak işlemlerin tanımlandığı alanlardır.
+
+`Mutations    :` Veri oluşturma, güncelleme ve silme işlemleri için kullanılır.
+
+`Subscriptions:` Server tarafında belirli bir event gerçekleştiğinde WebSocket
 kullanılarak belirtilen datayı gerçek zamanlı olarak client'e gönderir.
