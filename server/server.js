@@ -16,6 +16,10 @@ const typeDefs = gql`
   type Query {
     makalelerGetir: [Makale]
   }
+
+  type Mutation{
+      makaleOlustur(baslik:String!, icerik: String!): Makale!
+  }
 `
 
 const resolvers = {
@@ -24,7 +28,6 @@ const resolvers = {
       const makaleler = await MakaleModel.find()
       return makaleler
     },
-
     // makalelerGetir() {
     //   const makaleler = [
     //     { id: 1, baslik: 'Makale1 başlık1', icerik: 'Makale1 içerik' },
@@ -34,12 +37,26 @@ const resolvers = {
     //   return makaleler
     // },
   },
-};
+  Mutation: {
+    makaleOlustur: async (parent, args) => {
+      try {
+            const makale = {
+                baslik: args.baslik,
+                icerik: args.icerik,
+            }
+
+            return await MakaleModel.create(makale);
+      } catch (error) {
+            throw new error;
+      }
+    }
+  }
+}
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
-})
+  resolvers
+});
 
 const uri =
   'mongodb+srv://serihesap:blog1234@blogcluster.kp9ua.mongodb.net/blogDB?retryWrites=true&w=majority'

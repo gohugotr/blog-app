@@ -70,3 +70,23 @@ server.listen({port:4000}).then((res) => {
     console.log(`server ${res.url} adresinde ${res.port} portta çalışıyor`);
 });
 ```
+
+### GRAPHQL play içinde sorgulama örnekleri
+===========================================
+
+```js script
+mutation MakaleOlustur($baslik: String!, $icerik: String!) {
+  makaleOlustur(baslik: $baslik, icerik: $icerik) {
+    baslik: baslik, 
+    icerik: icerik
+  }
+}
+
+query MakalelerGetir {
+  makalelerGetir {
+    id
+    baslik
+    icerik
+  }
+}
+```
