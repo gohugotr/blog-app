@@ -9,7 +9,7 @@ node_modules/
 .pnp.js
 
 # Şifreler
-sifre.md*
+sifre.md
 
 # testing
 /coverage
