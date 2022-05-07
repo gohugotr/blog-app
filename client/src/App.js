@@ -1,6 +1,7 @@
 import './App.css';
 import MakaleEkle from './components/MakaleEkle';
 import MakaleListesi from './components/MakaleListesi'
+import MakaleDetay from './components/MakaleDetay'
 import Baslik from './components/Baslik'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -27,14 +28,15 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-          <Baslik />
-          <Routes>
-            <Route path='/' exact element={<MakaleListesi />} />
-            <Route path='/ekle' element={<MakaleEkle />} />
-            <Route path='*' element={<Error />} />
-          </Routes>
+        <Baslik />
+        <Routes>
+          <Route path='/' exact element={<MakaleListesi />} />
+          <Route path='/ekle' element={<MakaleEkle />} />
+          <Route path='/makale/:id' element={<MakaleDetay />} />
+          <Route path='*' element={<Error />} />
+        </Routes>
       </Router>
-    </ApolloProvider> 
+    </ApolloProvider>
   )
 }
 
