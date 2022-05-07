@@ -20,6 +20,7 @@ const typeDefs = gql`
 
   type Mutation{
       makaleOlustur(baslik:String!, icerik: String!): Makale!
+      makaleSil(id:ID!):String!
   }
 `
 
