@@ -1,5 +1,12 @@
 # Blog Uygulaması
 
+## Projenin çalışması için
+
+- server klasörüne gidilir ve `nodemon server` komutu verilir.
+- client klasörüne girilir ve `yarn start` komutu verilir.
+- `[http://localhost:3000](http://localhost:3000)` adresinden ulaşılabilir.
+
+
 `git rm -r --cached .` bununla git cache temizlenir.
 `node_modules/` Tüm alt klasördekileri node_modules klasörlerini git depomuzdan hariç tutar.
 
