@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 
 const MAKALE_GETIR = gql`
@@ -37,7 +37,7 @@ export default function MakaleDetay(props) {
                         <div className='content'>
                             {data.makaleGetir.icerik}
                         </div>
-                        
+                        <NavLink className="sil" to="">Sil</NavLink>
                     </div>
                 )
             }
