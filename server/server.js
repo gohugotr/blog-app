@@ -61,7 +61,17 @@ const resolvers = {
       } catch (error) {
             throw new error;
       }
-    }
+    },
+    makaleSil: async (_, {id}) => {
+      // async (_, {id}) içindeki '_' birinci parametreye ihtiyacımız olmadığından yapıldı.
+      try {
+            const silinecek = await MakaleModel.findById(id);
+            silinecek.delete();
+            return `${id} için silme işlemi başarılı`
+      } catch (error) {
+        
+      }
+    } 
   }
 }
 
