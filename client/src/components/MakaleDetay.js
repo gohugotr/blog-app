@@ -31,7 +31,7 @@ export default function MakaleDetay(props) {
   const onClick = () => {
     // console.log(id);
     silMakale({ variables: { id } })
-    //window.location ='/' // sayfa hem yönlendirilip, hem de yenileniyor.
+    window.location ='/' // sayfa hem yönlendirilip, hem de yenileniyor.
   }
 
   if (loading) {
@@ -47,10 +47,10 @@ export default function MakaleDetay(props) {
         <div className='detay content'>
           <h2>{data.makaleGetir.baslik}</h2>
           <div className='content'>{data.makaleGetir.icerik}</div>
-          <NavLink className='sil' reloadDocument={true} to='/' onClick={onClick}>
+          <NavLink className='sil' to="/" onClick={onClick}>
             Sil
           </NavLink>
-          {/* reloadDocument={true} sayfa hem yönlendirilip, hem de yenileniyor.  */}
+          
         </div>
       )}
     </div>
