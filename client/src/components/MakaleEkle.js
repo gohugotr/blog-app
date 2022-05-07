@@ -24,6 +24,10 @@ export default function MakaleEkle() {
     variables: veriler,
   })
 
+  if (loading) {
+    ;<p>Makaleler yükleniyor</p>
+  }
+
   const onChange = (e) => {
     setVeriler({ ...veriler, [e.target.name]: e.target.value })
   }

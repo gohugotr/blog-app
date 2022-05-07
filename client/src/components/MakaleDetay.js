@@ -37,6 +37,9 @@ export default function MakaleDetay(props) {
   if (loading) {
     ;<p>Makaleler yükleniyor</p>
   }
+  if (error) {
+    ;<p>`Makaleler ${error}`</p>
+  }
 
   return (
     <div>

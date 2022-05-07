@@ -1,6 +1,6 @@
-import React from 'react';
-import { gql, useQuery } from '@apollo/client';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { gql, useQuery } from '@apollo/client'
+import { Link } from 'react-router-dom'
 
 const MAKALELER_GETIR = gql`
   query makalelerGetir {
@@ -13,15 +13,14 @@ const MAKALELER_GETIR = gql`
 `
 
 export default function MakaleListesi() {
-  
   const { data, loading, error } = useQuery(MAKALELER_GETIR)
 
-  let makaleTemp;
+  let makaleTemp
 
-  if (loading){
+  if (loading) {
     makaleTemp = <p>Makaleler yükleniyor</p>
-  } else if (data){
-    makaleTemp = data.makalelerGetir.map(makale => {
+  } else if (data) {
+    makaleTemp = data.makalelerGetir.map((makale) => {
       return (
         <div key={makale.id} className='makaleler'>
           <Link to={`/makale/${makale.id}`}> {makale.baslik}</Link>
@@ -29,12 +28,9 @@ export default function MakaleListesi() {
       )
     })
   }
+  if (error) {
+    ;<p>`Makaleler ${error}`</p>
+  }
 
-  return (
-    <div>
-        {   
-          makaleTemp
-        }
-    </div>
-  )
+  return <div>{makaleTemp}</div>
 }
