@@ -135,3 +135,6 @@ query Query($makaleGetirId: ID!) {
   }
 }
 ```
+
+Apollo Developer Tools
+https://chrome.google.com/webstore/detail/apollo-client-devtools/jdkknkkbebbapilgoeccciglkfbmbnfm

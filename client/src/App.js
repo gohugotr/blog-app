@@ -4,12 +4,15 @@ import MakaleListesi from './components/MakaleListesi'
 import Baslik from './components/Baslik'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import ApolloClient from "apollo-boost"
-import {ApolloProvider} from '@apollo/react-hooks'
+// import ApolloClient from "apollo-boost"
+// import {ApolloProvider} from '@apollo/react-hooks'
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+
 
 
 const client = new ApolloClient({
-  uri:"http://localhost:4000/"
+  uri: 'http://localhost:4000/',
+  cache: new InMemoryCache(),
 })
 
 function App() {
@@ -24,14 +27,12 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className='App'>
           <Baslik />
           <Routes>
             <Route path='/' exact element={<MakaleListesi />} />
             <Route path='/ekle' element={<MakaleEkle />} />
             <Route path='*' element={<Error />} />
           </Routes>
-        </div>
       </Router>
     </ApolloProvider> 
   )
