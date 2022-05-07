@@ -1,16 +1,15 @@
 import React from 'react'
-import { NavLink, useParams } from 'react-router-dom';
-import { gql, useQuery, useMutation } from '@apollo/client';
+import { NavLink, useParams } from 'react-router-dom'
+import { gql, useQuery, useMutation } from '@apollo/client'
 
 const MAKALE_GETIR = gql`
-
-    query makaleGetir($id: ID!){
-      makaleGetir(id:$id){
-        id,
-        baslik,
-        icerik
-      }
+  query makaleGetir($id: ID!) {
+    makaleGetir(id: $id) {
+      id
+      baslik
+      icerik
     }
+  }
 `
 
 const MAKALE_SIL = gql`
@@ -20,25 +19,24 @@ const MAKALE_SIL = gql`
 `
 
 export default function MakaleDetay(props) {
-   //console.log(props); 
-   let { id} = useParams();
+  //console.log(props);
+  let { id } = useParams()
 
-  const { data, loading, error } = useQuery(MAKALE_GETIR,{
-      variables: {id}
+  const { data, loading, error } = useQuery(MAKALE_GETIR, {
+    variables: { id },
   })
 
-  const [silMakale] = useMutation(MAKALE_SIL);
+  const [silMakale] = useMutation(MAKALE_SIL)
 
   const onClick = () => {
-       // console.log(id);
-       silMakale({variables:{ id } });
-       //window.location ='/' // sayfa hem yönlendirilip, hem de yenileniyor.
+    // console.log(id);
+    silMakale({ variables: { id } })
+    //window.location ='/' // sayfa hem yönlendirilip, hem de yenileniyor.
   }
 
   if (loading) {
-    <p>Makaleler yükleniyor</p>
-  } 
-
+    ;<p>Makaleler yükleniyor</p>
+  }
 
   return (
     <div>

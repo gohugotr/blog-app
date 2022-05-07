@@ -1,38 +1,38 @@
 import React, { useState } from 'react'
-import {gql, useMutation} from "@apollo/client";
+import { gql, useMutation } from '@apollo/client'
 
 const MAKALE_EKLE = gql`
-
-    mutation makaleEkle($baslik: String!, $icerik: String!){
-      makaleOlustur(baslik:$baslik, icerik:$icerik){
-        id, baslik, icerik
-      }
+  mutation makaleEkle($baslik: String!, $icerik: String!) {
+    makaleOlustur(baslik: $baslik, icerik: $icerik) {
+      id
+      baslik
+      icerik
     }
-`;
+  }
+`
 
 export default function MakaleEkle() {
-
   const [veriler, setVeriler] = useState({
-      baslik: '',
-      icerik: ''
-  });
+    baslik: '',
+    icerik: '',
+  })
 
-  const [makaleEkle, {loading}] = useMutation(MAKALE_EKLE,{
-    update(proxy, sonuc){
-      console.log(sonuc);
+  const [makaleEkle, { loading }] = useMutation(MAKALE_EKLE, {
+    update(proxy, sonuc) {
+      console.log(sonuc)
     },
-    variables: veriler
+    variables: veriler,
   })
 
   const onChange = (e) => {
-      setVeriler({ ...veriler, [e.target.name]:e.target.value })
+    setVeriler({ ...veriler, [e.target.name]: e.target.value })
   }
 
   const onSubmit = (e) => {
-      e.preventDefault();
-      //console.log(veriler);
-      makaleEkle();
-      window.location = '/';
+    e.preventDefault()
+    //console.log(veriler);
+    makaleEkle()
+    window.location = '/'
   }
 
   return (
