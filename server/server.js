@@ -1,7 +1,7 @@
 const { ApolloServer } = require('apollo-server')
 const gql = require('graphql-tag') // typeDefs tanımları için gerekli
 
-const client = require('mongoose')
+const clientMongoose = require('mongoose')
 const { ServerApiVersion } = require('mongodb')
 
 const MakaleModel = require('./model/MakaleModel')
@@ -28,6 +28,7 @@ const resolvers = {
   Query: {
     async makalelerGetir() {
       const makaleler = await MakaleModel.find()
+
       return makaleler
     },
     async makaleGetir(parent, args){
@@ -83,7 +84,7 @@ const server = new ApolloServer({
 const uri =
   'mongodb+srv://serihesap:blog1234@blogcluster.kp9ua.mongodb.net/blogDB?retryWrites=true&w=majority'
 
-client
+clientMongoose
   .connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
